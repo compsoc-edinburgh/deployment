@@ -28,8 +28,8 @@ jobs:
         run: |
           source .env
           IMAGE_ID=ghcr.io/compsoc-edinburgh/$SUBDOMAIN
-          docker tag $IMAGE_NAME $IMAGE_ID:latest
-          docker tag $IMAGE_NAME $IMAGE_ID:${{ github.sha }}
+          docker tag $SUBDOMAIN $IMAGE_ID:latest
+          docker tag $SUBDOMAIN $IMAGE_ID:${{ github.sha }}
           docker push $IMAGE_ID:${{ github.sha }}
           docker push $IMAGE_ID:latest
       - name: Trigger update
