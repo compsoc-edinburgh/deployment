@@ -8,8 +8,9 @@ So you want to run a CompSoc service? That's great! (less work for the TechSec &
    - `SUBDOMAIN=...`: Which subdomain of `dev.comp-soc.com` should this app run on. This should be a valid subdomain string.
    - `INTERNAL=...`: Is this an internal committee service?
 4. Add, commit, and push
-5. You'll need to enable GitHub Actions for the repository, and you'll need to trigger a manual run of the `Initialise` action
-6. And you're done! This template presumes a NodeJS app, but you'd be able to use any technologies to build your app, as long as:
+5. You'll need to enable GitHub Actions for the repository, and you'll need to trigger a manual run of the `Deploy` action
+6. Run `make initialise`
+7. And you're done! This template presumes a NodeJS app, but you'd be able to use any technologies to build your app, as long as:
    1. You can package it in a _single_ docker container
    2. It listens on at most _one_ port, specified by the `$PORT` environment variable
 
