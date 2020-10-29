@@ -31,7 +31,7 @@ initialise: generate-port
 		-e PORT=${PORT} \
 		-v /secrets/service-${SUBDOMAIN}:/secrets \
 		-e "DATABASE_URL=postgresql://postgres:mysecretpassword@postgres:5432/service-db-${SUBDOMAIN}" \
-		-e "FILE_UPLOAD=https://simple-storage:3456/${SUBDOMAIN}" \
+		-e "FILE_UPLOAD=https://service-simple-storage:3456/${SUBDOMAIN}" \
 		--label "com.centurylinklabs.watchtower.enable=true" \
 		--label "traefik.http.routers.service-${SUBDOMAIN}.rule=Host(\`${SUBDOMAIN}.dev.comp-soc.com\`)" \
 		--label "traefik.http.routers.service-${SUBDOMAIN}.middlewares=traefik-forward-auth" \
