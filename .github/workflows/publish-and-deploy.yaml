@@ -19,7 +19,7 @@ jobs:
       - name: Build image
         run: |
           source .env
-          docker build . --file Dockerfile --tag $SUBDOMAIN
+          docker build . --file Dockerfile --tag service-$SUBDOMAIN
 
       - name: Log into registry
         run: echo "${{ secrets.PAT }}" | docker login ghcr.io -u compsoc-service --password-stdin
@@ -27,9 +27,9 @@ jobs:
       - name: Push image
         run: |
           source .env
-          IMAGE_ID=ghcr.io/compsoc-edinburgh/$SUBDOMAIN
-          docker tag $SUBDOMAIN $IMAGE_ID:latest
-          docker tag $SUBDOMAIN $IMAGE_ID:${{ github.sha }}
+          IMAGE_ID=ghcr.io/compsoc-edinburgh/service-$SUBDOMAIN
+          docker tag service-$SUBDOMAIN $IMAGE_ID:latest
+          docker tag service-$SUBDOMAIN $IMAGE_ID:${{ github.sha }}
           docker push $IMAGE_ID:${{ github.sha }}
           docker push $IMAGE_ID:latest
       - name: Trigger update
