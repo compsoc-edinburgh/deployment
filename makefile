@@ -1,6 +1,6 @@
 include .env
 
-REMOTE=root@deployment_host.comp-soc.com
+REMOTE=root@deployment-host.comp-soc.com
 
 # .SILENT:
 
