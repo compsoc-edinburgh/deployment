@@ -3,7 +3,7 @@ name: Docker
 on:
   workflow_dispatch:
   push:
-    # Publish `master` as Docker `latest` image.
+    # Publish `main` as Docker `latest` image.
     branches:
       - main
 
